@@ -1,0 +1,19 @@
+import shutil
+
+source_file = 'source.txt'
+destination_file = 'destination.txt'
+
+try:
+    # Copy the content from source to destination
+    shutil.copyfile(source_file, destination_file)
+    print(f"Content of '{source_file}' copied to '{destination_file}' successfully!")
+except shutil.SameFileError:
+    print("Source and destination files are the same.")
+except IsADirectoryError:
+    print("Destination is a directory. Please specify a file name.")
+except FileNotFoundError:
+    print(f"Source file '{source_file}' not found.")
+except PermissionError:
+    print("Permission denied.")
+except Exception as e:
+    print(f"An error occurred: {e}")
